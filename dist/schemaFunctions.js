@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.encodeDefaultCall = exports.encodeBuy = exports.encodeAtomicizedBuy = exports.encodeAtomicizedSell = exports.encodeSell = exports.encodeCall = exports.encodeReplacementPattern = void 0;
 const utils_1 = require("@0xproject/utils");
 const ethABI = require("ethereumjs-abi");
 const wyvern_js_1 = require("wyvern-js");
@@ -8,14 +9,15 @@ const failWith = (msg) => {
     throw new Error(msg);
 };
 exports.encodeReplacementPattern = wyvern_js_1.WyvernProtocol.encodeReplacementPattern;
-exports.encodeCall = (abi, parameters) => {
+const encodeCall = (abi, parameters) => {
     const inputTypes = abi.inputs.map(i => i.type);
     return '0x' + Buffer.concat([
         ethABI.methodID(abi.name, inputTypes),
         ethABI.rawEncode(inputTypes, parameters),
     ]).toString('hex');
 };
-exports.encodeSell = (schema, asset, address) => {
+exports.encodeCall = encodeCall;
+const encodeSell = (schema, asset, address) => {
     const transfer = schema.functions.transfer(asset);
     return {
         target: transfer.target,
@@ -23,7 +25,8 @@ exports.encodeSell = (schema, asset, address) => {
         replacementPattern: exports.encodeReplacementPattern(transfer),
     };
 };
-exports.encodeAtomicizedSell = (schema, assets, address, atomicizer) => {
+exports.encodeSell = encodeSell;
+const encodeAtomicizedSell = (schema, assets, address, atomicizer) => {
     const transactions = assets.map(asset => {
         const { target, calldata } = exports.encodeSell(schema, asset, address);
         return {
@@ -41,7 +44,8 @@ exports.encodeAtomicizedSell = (schema, assets, address, atomicizer) => {
         replacementPattern: atomicizedReplacementPattern,
     };
 };
-exports.encodeAtomicizedBuy = (schema, assets, address, atomicizer) => {
+exports.encodeAtomicizedSell = encodeAtomicizedSell;
+const encodeAtomicizedBuy = (schema, assets, address, atomicizer) => {
     const transactions = assets.map(asset => {
         const { target, calldata } = exports.encodeBuy(schema, asset, address);
         return {
@@ -59,7 +63,8 @@ exports.encodeAtomicizedBuy = (schema, assets, address, atomicizer) => {
         replacementPattern: atomicizedReplacementPattern,
     };
 };
-exports.encodeBuy = (schema, asset, address) => {
+exports.encodeAtomicizedBuy = encodeAtomicizedBuy;
+const encodeBuy = (schema, asset, address) => {
     const transfer = schema.functions.transfer(asset);
     const replaceables = transfer.inputs.filter((i) => i.kind === types_1.FunctionInputKind.Replaceable);
     const ownerInputs = transfer.inputs.filter((i) => i.kind === types_1.FunctionInputKind.Owner);
@@ -90,7 +95,8 @@ exports.encodeBuy = (schema, asset, address) => {
         replacementPattern,
     };
 };
-exports.encodeDefaultCall = (abi, address) => {
+exports.encodeBuy = encodeBuy;
+const encodeDefaultCall = (abi, address) => {
     const parameters = abi.inputs.map(input => {
         switch (input.kind) {
             case types_1.FunctionInputKind.Replaceable:
@@ -104,4 +110,5 @@ exports.encodeDefaultCall = (abi, address) => {
     });
     return exports.encodeCall(abi, parameters);
 };
+exports.encodeDefaultCall = encodeDefaultCall;
 //# sourceMappingURL=schemaFunctions.js.map

@@ -1,9 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.EnjinItemSchema = void 0;
 const Web3 = require("web3");
 const types_1 = require("../../../types");
 const ERC1155_1 = require("../../ERC1155");
-exports.EnjinItemSchema = Object.assign({}, ERC1155_1.ERC1155Schema, { version: 1, deploymentBlock: 0, name: 'Enjin', description: 'Items conforming to the Enjin implementation of the ERC1155 spec.', website: 'https://enjincoin.io/', functions: Object.assign({}, ERC1155_1.ERC1155Schema.functions, { ownerOf: asset => ({
+exports.EnjinItemSchema = Object.assign(Object.assign({}, ERC1155_1.ERC1155Schema), { version: 1, deploymentBlock: 0, name: 'Enjin', description: 'Items conforming to the Enjin implementation of the ERC1155 spec.', website: 'https://enjincoin.io/', functions: Object.assign(Object.assign({}, ERC1155_1.ERC1155Schema.functions), { ownerOf: asset => ({
             type: Web3.AbiType.Function,
             name: 'ownerOf',
             payable: false,

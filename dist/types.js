@@ -1,8 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.EventInputKind = exports.FunctionOutputKind = exports.StateMutability = exports.ABIType = exports.Network = exports.FunctionInputKind = void 0;
 const Web3 = require("web3");
 const types_1 = require("wyvern-js/lib/types");
-exports.FunctionInputKind = types_1.FunctionInputKind;
+Object.defineProperty(exports, "FunctionInputKind", { enumerable: true, get: function () { return types_1.FunctionInputKind; } });
 var Network;
 (function (Network) {
     Network["Main"] = "main";

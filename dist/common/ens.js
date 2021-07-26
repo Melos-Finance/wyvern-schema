@@ -1,7 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.ENSNameBaseSchema = exports.nodehash = exports.namehash = void 0;
 const ethereumjs_util_1 = require("ethereumjs-util");
-exports.namehash = (name) => {
+const namehash = (name) => {
     let node = '0000000000000000000000000000000000000000000000000000000000000000';
     if (name !== '') {
         const labels = name.split('.');
@@ -12,7 +13,8 @@ exports.namehash = (name) => {
     }
     return '0x' + node.toString();
 };
-exports.nodehash = (name) => {
+exports.namehash = namehash;
+const nodehash = (name) => {
     const label = name.split('.')[0];
     if (label) {
         return '0x' + ethereumjs_util_1.sha3(label).toString('hex');
@@ -21,6 +23,7 @@ exports.nodehash = (name) => {
         return '';
     }
 };
+exports.nodehash = nodehash;
 exports.ENSNameBaseSchema = {
     fields: [
         { name: 'Name', type: 'string', description: 'ENS Name' },

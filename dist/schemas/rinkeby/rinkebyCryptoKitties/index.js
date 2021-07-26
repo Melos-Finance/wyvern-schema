@@ -1,13 +1,15 @@
 "use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
         function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.rinkebyCryptoKittiesSchema = void 0;
 const Web3 = require("web3");
 const types_1 = require("../../../types");
 exports.rinkebyCryptoKittiesSchema = {
@@ -22,7 +24,7 @@ exports.rinkebyCryptoKittiesSchema = {
     ],
     assetFromFields: (fields) => fields.ID,
     assetToFields: asset => ({ ID: asset }),
-    formatter: (asset) => __awaiter(this, void 0, void 0, function* () {
+    formatter: (asset) => __awaiter(void 0, void 0, void 0, function* () {
         return {
             thumbnail: 'https://www.cryptokitties.co/images/kitty-eth.svg',
             title: 'RinkebyCryptoKitty #' + asset,
@@ -94,7 +96,7 @@ exports.rinkebyCryptoKittiesSchema = {
                     { kind: types_1.EventInputKind.Destination, indexed: true, name: 'to', type: 'address' },
                     { kind: types_1.EventInputKind.Asset, indexed: true, name: 'tokenId', type: 'uint256' },
                 ],
-                assetFromInputs: (inputs) => __awaiter(this, void 0, void 0, function* () { return inputs.tokenId; }),
+                assetFromInputs: (inputs) => __awaiter(void 0, void 0, void 0, function* () { return inputs.tokenId; }),
             }],
     },
     hash: a => a,

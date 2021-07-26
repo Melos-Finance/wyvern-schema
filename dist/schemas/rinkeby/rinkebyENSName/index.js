@@ -1,17 +1,19 @@
 "use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
         function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.rinkebyENSNameSchema = void 0;
 const Web3 = require("web3");
 const ens_1 = require("../../../common/ens");
 const types_1 = require("../../../types");
-exports.rinkebyENSNameSchema = Object.assign({}, ens_1.ENSNameBaseSchema, { version: 1, deploymentBlock: 0, name: 'ENSName', description: 'Rinkeby Ethereum Name Service (EIP 137)', thumbnail: 'https://ens.domains/img/ens.svg', website: 'https://github.com/ethereum/EIPs/blob/master/EIPS/eip-137.md', formatter: (asset) => __awaiter(this, void 0, void 0, function* () {
+exports.rinkebyENSNameSchema = Object.assign(Object.assign({}, ens_1.ENSNameBaseSchema), { version: 1, deploymentBlock: 0, name: 'ENSName', description: 'Rinkeby Ethereum Name Service (EIP 137)', thumbnail: 'https://ens.domains/img/ens.svg', website: 'https://github.com/ethereum/EIPs/blob/master/EIPS/eip-137.md', formatter: (asset) => __awaiter(void 0, void 0, void 0, function* () {
         return {
             thumbnail: 'https://ens.domains/img/ens.svg',
             title: 'ENS Name ' + asset.name,

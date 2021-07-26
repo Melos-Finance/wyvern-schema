@@ -1,13 +1,15 @@
 "use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
         function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.ERC721Schema = void 0;
 const Web3 = require("web3");
 const types_1 = require("../../types");
 exports.ERC721Schema = {
@@ -29,7 +31,7 @@ exports.ERC721Schema = {
         ID: asset.id,
         Address: asset.address,
     }),
-    formatter: (asset) => __awaiter(this, void 0, void 0, function* () {
+    formatter: (asset) => __awaiter(void 0, void 0, void 0, function* () {
         return {
             title: 'ERC721 Asset: Token ID ' + asset.id + ' at ' + asset.address,
             description: '',
