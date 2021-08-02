@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.mainSchemas = void 0;
+exports.schemas = void 0;
 const index_1 = require("../ContractRole/index");
 const ERC1155_1 = require("../ERC1155");
 const ERC20_1 = require("../ERC20");
@@ -11,7 +11,7 @@ const EnjinItem_1 = require("./EnjinItem");
 const index_5 = require("./ENSName/index");
 const index_6 = require("./ENSShortNameAuction/index");
 const index_7 = require("./OwnableContract/index");
-exports.mainSchemas = [
+exports.schemas = [
     index_3.CryptoKittiesSchema,
     index_4.CryptoPunksSchema,
     index_5.ENSNameSchema,

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.rinkebySchemas = void 0;
+exports.schemas = void 0;
 const index_1 = require("../ContractRole/index");
 const ERC1155_1 = require("../ERC1155");
 const ERC20_1 = require("../ERC20");
@@ -11,7 +11,7 @@ const index_5 = require("./rinkebyENSName/index");
 const index_6 = require("./rinkebyENSShortNameAuction/index");
 const index_7 = require("./rinkebyOwnableContract/index");
 const index_8 = require("./testRinkebyNFT/index");
-exports.rinkebySchemas = [
+exports.schemas = [
     index_3.rinkebyCryptoKittiesSchema,
     index_4.rinkebyCustomSchema,
     index_5.rinkebyENSNameSchema,
