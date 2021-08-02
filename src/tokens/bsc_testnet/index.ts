@@ -1,6 +1,6 @@
 import { NetworkTokens } from "../../types";
 
-export const rinkebyTokens: NetworkTokens = {
+export const bscTestnetTokens: NetworkTokens = {
   canonicalWrappedEther: {
     name: "Wrapped BNB",
     symbol: "WBNB",
