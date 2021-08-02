@@ -1,22 +1,18 @@
-import * as Web3 from 'web3';
+import * as Web3 from "web3";
 
 import {
   AnnotatedFunctionInput,
   AnnotatedFunctionABI,
   FunctionInputKind,
-} from 'wyvern-js/lib/types';
+  Network,
+} from "wyvern-js/lib/types";
 
 export {
   AnnotatedFunctionInput,
   AnnotatedFunctionABI,
   FunctionInputKind,
-}
-
-export enum Network {
-  Main = 'main',
-  Rinkeby = 'rinkeby',
-  Kovan = 'kovan',
-}
+  Network,
+};
 
 export enum ABIType {
   Function = Web3.AbiType.Function,
@@ -36,17 +32,17 @@ export interface NetworkTokens {
 }
 
 export enum StateMutability {
-  Pure = 'pure',
-  View = 'view',
-  Payable = 'payable',
-  Nonpayable = 'nonpayable',
+  Pure = "pure",
+  View = "view",
+  Payable = "payable",
+  Nonpayable = "nonpayable",
 }
 
 export enum FunctionOutputKind {
-  Owner = 'owner',
-  Asset = 'asset',
-  Count = 'count',
-  Other = 'other',
+  Owner = "owner",
+  Asset = "asset",
+  Count = "count",
+  Other = "other",
 }
 
 export interface AnnotatedFunctionOutput {
@@ -60,10 +56,10 @@ export interface AnnotatedFunctionABIReturning<T> extends AnnotatedFunctionABI {
 }
 
 export enum EventInputKind {
-  Source = 'source',
-  Destination = 'destination',
-  Asset = 'asset',
-  Other = 'other',
+  Source = "source",
+  Destination = "destination",
+  Asset = "asset",
+  Other = "other",
 }
 
 export interface AnnotatedEventInput {

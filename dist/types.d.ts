@@ -1,11 +1,6 @@
-import * as Web3 from 'web3';
-import { AnnotatedFunctionInput, AnnotatedFunctionABI, FunctionInputKind } from 'wyvern-js/lib/types';
-export { AnnotatedFunctionInput, AnnotatedFunctionABI, FunctionInputKind, };
-export declare enum Network {
-    Main = "main",
-    Rinkeby = "rinkeby",
-    Kovan = "kovan"
-}
+import * as Web3 from "web3";
+import { AnnotatedFunctionInput, AnnotatedFunctionABI, FunctionInputKind, Network } from "wyvern-js/lib/types";
+export { AnnotatedFunctionInput, AnnotatedFunctionABI, FunctionInputKind, Network, };
 export declare enum ABIType {
     Function = "function",
     Event = "event"

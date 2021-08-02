@@ -4,12 +4,7 @@ exports.EventInputKind = exports.FunctionOutputKind = exports.StateMutability = 
 const Web3 = require("web3");
 const types_1 = require("wyvern-js/lib/types");
 Object.defineProperty(exports, "FunctionInputKind", { enumerable: true, get: function () { return types_1.FunctionInputKind; } });
-var Network;
-(function (Network) {
-    Network["Main"] = "main";
-    Network["Rinkeby"] = "rinkeby";
-    Network["Kovan"] = "kovan";
-})(Network = exports.Network || (exports.Network = {}));
+Object.defineProperty(exports, "Network", { enumerable: true, get: function () { return types_1.Network; } });
 var ABIType;
 (function (ABIType) {
     ABIType["Function"] = "function";
