@@ -5,7 +5,7 @@ export const bscTestnetTokens: NetworkTokens = {
     name: "Wrapped BNB",
     symbol: "WBNB",
     decimals: 18,
-    address: "0x094616f0bdfb0b526bd735bf66eca0ad254ca81f",
+    address: "0xae13d989daC2f0dEbFf460aC112a837C89BAa7cd",
   },
   otherTokens: [],
 };
