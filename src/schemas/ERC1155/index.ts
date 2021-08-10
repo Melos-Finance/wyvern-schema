@@ -37,6 +37,7 @@ export const ERC1155Schema: Schema<SemiFungibleTradeType> = {
     ID: asset.id,
     Address: asset.address,
     Quantity: asset.quantity,
+    Data: asset.data,
   }),
   formatter: async (asset) => {
     return {

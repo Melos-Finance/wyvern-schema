@@ -35,6 +35,7 @@ exports.ERC1155Schema = {
         ID: asset.id,
         Address: asset.address,
         Quantity: asset.quantity,
+        Data: asset.data,
     }),
     formatter: (asset) => __awaiter(void 0, void 0, void 0, function* () {
         return {
